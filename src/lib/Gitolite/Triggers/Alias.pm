@@ -114,11 +114,6 @@ sub input {
 
         # if the new name starts with "301/", inform and abort
         _die "please use '$target' instead of '$norm'" if $target =~ s(^301/)();
-        # otherwise print a warning and continue with the new name
-        my $wm = $rc{REPO_ALIASES}{WARNING} || "'%old' is an alias for '%new'";
-        $wm =~ s/%new/$target/g;
-        $wm =~ s/%old/$norm/g;
-        _warn $wm;
 
         $ENV{SSH_ORIGINAL_COMMAND} =~ s/'\/?$repo'/'$target'/;
     }
