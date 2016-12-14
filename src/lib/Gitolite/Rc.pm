@@ -498,7 +498,9 @@ __DATA__
 # "list of non-core programs shipped with gitolite" in the master index) or
 # directly in the corresponding source file.
 
+%REPO_ALIASES = do '.gitolite/conf/aliases.pl';
 %RC = (
+    REPO_ALIASES => \%REPO_ALIASES,
 
     # ------------------------------------------------------------------
 
@@ -613,7 +615,7 @@ __DATA__
             # 'no-auto-create',
 
             # access a repo by another (possibly legacy) name
-            # 'Alias',
+            'Alias',
 
             # give some users direct shell access.  See documentation in
             # sts.html for details on the following two choices.
